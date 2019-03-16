@@ -135,10 +135,18 @@ public class NoteTest {
     
     @Test
     public void testDelete(){
-        for(Note n : DatabaseController.getNotesByUser("Joseph")){
+        Note note = new Note();
+        note.updateDate();
+        note.setName("test note");
+        note.setContents("asgasgag");
+        note.setOwner("Test");
+        User u = DatabaseController.getUserByName("Test");
+        DatabaseController.save(note);
+        System.out.println("username: " + u.getUsername());
+        for(Note n : DatabaseController.getNotesByUser(u)){
             assert DatabaseController.delete(n);
         }
-        assert DatabaseController.getNotesByUser("Joseph").isEmpty();
+        assert DatabaseController.getNotesByUser("Test").isEmpty();
     }
     
 }

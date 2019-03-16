@@ -79,7 +79,7 @@ public class DatabaseController {
             List<Note> output;
             session = getSessionFactory().openSession();
             session.beginTransaction();
-            output = session.createQuery("from Note n where n.Owner='" + u.getUsername() + "'").list();
+            output = session.createQuery("from Note n where n.owner='" + u.getUsername() + "'").list();
             session.getTransaction().commit();
             session.close();
             return output;
