@@ -1,8 +1,13 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="sidenav">
-    <p>Notes</p>
-    <a class="active" href="index.jsp">Home</a>
-    <a href="categories.jsp">Artists</a>
-    <a href="#store">Store</a>
-    <a href="about.jsp">About</a>
-    <a href="contact.jsp">Contact Me</a>
+    <p>${sessionScope.theUser.username}'s Notes</p>
+    <hr>
+    <c:forEach var="note" items="${sessionScope.notes}">
+        <a <c:if test="${sessionScope.activeNote==note}">
+                class="active"
+            </c:if>
+            href="HomeServlet?action=goToNote&noteId=${note.ID}">${note.name}
+            <br>
+            <span class="sidenavDate">(${note.lastEditedDate})</span></a>
+            </c:forEach>
 </div>

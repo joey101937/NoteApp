@@ -32,9 +32,6 @@
 
 
 
-
-
-
 .fontFamily {
     font-family: Verdana;
 }
@@ -107,14 +104,25 @@ li a:hover:not(.active) {
     display: block;
 }
 
-
 .sidenav p {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
-    color: #f1f1f1;
+    font-weight: 200;
     display: block;
+    color: #f1f1f1;
 }
+
+.sidenavDate{
+    font-size: 10px;
+}
+
+
+
+
+
+
+
 
 .sidenav a:hover {
     color: lightsteelblue;
