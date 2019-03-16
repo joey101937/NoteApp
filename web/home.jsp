@@ -14,9 +14,9 @@
 
                 <%@ include file="user-navigation.jsp" %>
 
-                <h2>Note Name</h2>
+                <h2>${sessionScope.activeNote.name}</h2>
                 <span class="descrip">
-                    <textarea cols="150" rows="50" placeholder="Enter Note Contents Here"></textarea>
+                    <textarea cols="150" rows="50" placeholder="Enter Note Contents Here">${sessionScope.activeNote.contents}</textarea>
                 </span>
                 
             </div> 

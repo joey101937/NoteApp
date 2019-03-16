@@ -46,9 +46,15 @@ public class HomeServlet extends HttpServlet {
                         System.out.println("creating a new user");
                         u = new User(request.getParameter("username"));
                         DatabaseController.save(u);
+                        Note initialNote = new Note();
+                        initialNote.updateDate();
+                        initialNote.setName("Starter Note");
+                        initialNote.setOwner(u.getUsername());
+                        DatabaseController.save(initialNote);
                     }
                     request.getSession().setAttribute("theUser", u);
                     request.getSession().setAttribute("notes", DatabaseController.getNotesByUser(u));
+                    request.getSession().setAttribute("activeNote", null);
                     loadHomePage(request,response);
                     return;
                 case "loadHome": //loads home.jsp

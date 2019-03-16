@@ -3,7 +3,7 @@
     <p>${sessionScope.theUser.username}'s Notes</p>
     <hr>
     <c:forEach var="note" items="${sessionScope.notes}">
-        <a <c:if test="${sessionScope.activeNote==note}">
+        <a <c:if test="${sessionScope.activeNote.ID==note.ID}">
                 class="active"
             </c:if>
             href="HomeServlet?action=goToNote&noteId=${note.ID}">${note.name}

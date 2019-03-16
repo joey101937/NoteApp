@@ -24,8 +24,22 @@
   cursor: pointer;
 }
 
+.newNoteButton{
+    width: 140px;
+    background-color: darkslategray;
+    color: white;
+    padding: 8px 0px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
 
-
+.newNoteField{
+    margin-left: 20px;
+    border: none;
+    padding: 8px 0px;
+}
 
 
 
@@ -149,14 +163,6 @@ dd {
     font-style: oblique;
 }
 
-.album {
-    width: 300px;
-    height: 300px;
-    float: left;
-    padding: 40px ;
-    overflow: auto;
-}
-
 .path {
     font-size: 50%;
 }
@@ -176,15 +182,6 @@ table {
   width: 100%;
 }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
 
 .share {
     text-align: center;
