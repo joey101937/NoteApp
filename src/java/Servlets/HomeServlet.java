@@ -65,6 +65,11 @@ public class HomeServlet extends HttpServlet {
                     url = "/index.jsp";
                     getServletContext().getRequestDispatcher(url).forward(request, response);
                     return;
+                case "goToNote":
+                    Note newActive = DatabaseController.getNoteById(Integer.parseInt(request.getParameter("noteId")));
+                    request.getSession().setAttribute("activeNote", newActive);
+                    loadHomePage(request,response);
+                    return;
             }
         } catch (Exception e) {
             e.printStackTrace();
