@@ -14,12 +14,19 @@
 
                 <%@ include file="user-navigation.jsp" %> 
 
-                <h2>${sessionScope.activeNote.name}<a href="HomeServlet?action=save&noteId=${sessionScope.activeNote.ID}"><button class="saveButton">Save</button></a><a href="HomeServlet?action=delete&noteId=${sessionScope.activeNote.ID}"><button class="deleteButton">Delete</button></a></h2>
-                
+                <h2>${sessionScope.activeNote.name}<a href="HomeServlet?action=deleteNote&noteId=${sessionScope.activeNote.ID}"><button class="deleteButton">Delete</button></a></h2>
+
                 <div>
-                <span class="descrip">
-                    <textarea cols="150" rows="50" placeholder="Enter Note Contents Here">${sessionScope.activeNote.contents}</textarea>
-                </span>
+                    <form action="HomeServlet" method="post" class="descrip">
+                        <div class="saveDiv">
+                        <input type="hidden" name="action" value="save">
+                        <input type="hidden" name="noteId" value="${sessionScope.activeNote.ID}">
+                        <input type="submit" value="Save" class="saveButton">
+                        </div>
+                        <div>
+                            <textarea name="contents" cols="150" rows="50" placeholder="Enter Note Contents Here">${sessionScope.activeNote.contents}</textarea>
+                        </div>
+                    </form>    
                 </div>
             </div> 
         </div>

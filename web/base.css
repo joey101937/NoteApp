@@ -33,7 +33,8 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 15pt;;
+    font-size: 15pt;
+    float:left;
 }
 
 .deleteButton{
@@ -65,8 +66,23 @@
     padding: 8px 0px;
 }
 
+.signoutButton{
+    width: 140px;
+    background-color: darkslategray;
+    color: white;
+    padding: 8px 0px;
+    margin: 4px 4px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    float: right;
+}
 
 
+textarea{
+    width:100%;
+    float:left;
+}
 
 
 
@@ -158,10 +174,6 @@ li a:hover:not(.active) {
 
 
 
-
-
-
-
 .sidenav a:hover {
     color: lightsteelblue;
 }
@@ -179,35 +191,16 @@ li a:hover:not(.active) {
 }
 /**************************************************************/
 
-dt {
-    font: bolder;
-    font-size: 125%;
-}
-dd {
-    font-style: oblique;
-}
-
-.path {
-    font-size: 50%;
-}
 .descrip {
-    align-content: right;
     font-size: 70%;
+    width:100%;
+}
+.saveDiv{
+    width:100%;
 }
 
 .inline {
     display: inline-block;
     margin-right: 5px;
-}
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-
-.share {
-    text-align: center;
 }
 

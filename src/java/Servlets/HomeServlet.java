@@ -70,6 +70,35 @@ public class HomeServlet extends HttpServlet {
                     request.getSession().setAttribute("activeNote", newActive);
                     loadHomePage(request,response);
                     return;
+                case "save":
+                    Note activeNote = (Note)request.getSession().getAttribute("activeNote");
+                    DatabaseController.updateNoteDate(activeNote);
+                    DatabaseController.updateNoteContents(activeNote.getID(), request.getParameter("contents")); //update in db
+                    activeNote.setContents(request.getParameter("contents")); //update in memory
+                    loadHomePage(request,response);
+                    return;
+                case "createNote":
+                    Note createdNote = new Note();
+                    createdNote.updateDate();
+                    createdNote.setName(request.getParameter("noteName"));
+                    createdNote.setOwner(((User)request.getSession().getAttribute("theUser")).getUsername());
+                    if(DatabaseController.save(createdNote)){
+                        request.getSession().setAttribute("activeNote", createdNote);
+                    }
+                    loadHomePage(request,response);
+                    return;
+                case "deleteNote":
+                    if(DatabaseController.delete(DatabaseController.getNoteById(Integer.parseInt(request.getParameter("noteId"))))){
+                        //if we successfully deleted note from db
+                        request.getSession().setAttribute("activeNote", null);
+                    }
+                    loadHomePage(request,response);
+                    return;
+                case "logout":
+                    request.getSession().setAttribute("theUser", null);
+                    url = "/index.jsp";
+                    getServletContext().getRequestDispatcher(url).forward(request, response);
+                    return;
             }
         } catch (Exception e) {
             e.printStackTrace();
